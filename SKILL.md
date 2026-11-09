@@ -17,15 +17,15 @@ Arguments are optional and combine a **target** (file, folder, screen or flow) w
 
 Topics: `states`, `loading`, `partial`, `errors`, `empty`, `success`, `forms`, `buttons`, `targets`, `conventions`, `choices`, `complexity`, `copy`, `a11y`, `edge`, `navigation`, `mobile`. Accept close wording ("accessibility", "tap targets"). A word that is neither a topic nor an identifiable target: show this list instead of guessing.
 
-Problems cross topics, so a topic audit is never a clean bill of health. List the other topics as not checked and name the closest ones to run next: `forms` -> `errors`, `navigation`, `edge`; `loading` -> `partial`, `errors`; `errors` -> `copy`, `edge`; `buttons` -> `loading`, `a11y`, `targets`; `empty` -> `states`, `copy`.
+Problems cross topics, so a topic audit is never a clean bill of health. List the other topics as not checked and name the closest ones to run next: `forms` -> `errors`, `navigation`, `edge`; `loading` -> `partial`, `errors`; `errors` -> `copy`, `edge`; `buttons` -> `loading`, `a11y`, `targets`; `empty` -> `states`, `copy`; `navigation` -> `edge`, `errors`; `edge` -> `errors`, `navigation`; `a11y` -> `targets`, `copy`; otherwise the two closest. If a topic has nothing to check on the target, say so in one line and suggest the nearest one.
 
 ## Method
 
-1. List every screen/flow touched, its data sources and actions, and its platform (web, native, both). Read decisions already validated (handoff notes, specs, mockups). Do not propose reversing one without saying so.
-2. Run the checklist on each, limited to the requested topics if any. Web only: hover, focus ring, tab order, `autocomplete`. Native equivalents: [references/examples.md](references/examples.md).
-3. Report findings as `[severity, rare?] place: problem -> fix`. Severity: **blocker** (user cannot finish, any data loss, silent failure, inaccessible), **friction** (user finishes but confused or slowed), **polish** (nice to have). Tag `rare` when it needs an unusual situation. Sort by severity, then frequency: a common friction can outrank a rare blocker. Show the top 10 and say how many remain; give the rest on request.
+1. List every screen/flow touched, its data sources and actions, and its platform (web, native, both). For a file target, also read what controls it (navigation config, parent layout, data source). Read decisions already validated (handoff notes, specs, mockups). Do not propose reversing one without saying so.
+2. Run the checklist on each, limited to the requested topics if any. Skip lines that do not apply, without listing them. Web only: hover, focus ring, tab order. Native equivalents: [references/examples.md](references/examples.md).
+3. Report findings as `[severity, rare?, seen|code] place: problem -> fix`. Severity: **blocker** (user cannot finish, any data loss, a user action silently not done, inaccessible), **friction** (user finishes but confused or slowed, including a wrong figure with no warning), **polish** (nice to have). Tag `rare` when it needs an unusual situation. Sort: blockers, friction, rare blockers, rare friction, polish. Show the top 10 and say how many remain; give the rest on request.
 4. Propose by default. Apply fixes only when asked or when the task is "fix UX".
-5. If the UI targets phones, test on a real or emulated device when you can: missed taps, scroll vs tap, one-handed reach. If you cannot, mark findings as read from code, not observed.
+5. If the UI targets phones, test on a real or emulated device when you can: missed taps, scroll vs tap, one-handed reach. Tag each finding `seen` if observed on screen, `code` if only read.
 
 ## Checklist
 
@@ -55,14 +55,14 @@ Problems cross topics, so a topic audit is never a clean bill of health. List th
 
 **Microcopy.** Buttons lead with a specific verb that says the outcome ("Save changes", "Delete 3 files"), never bare "OK"/"Submit"/"Click here". Calm, blame-free, no jargon, one term per concept, in the product's language. Clarity beats cleverness at decision points. Templates for errors, empty states, success: [references/copy.md](references/copy.md).
 
-**Accessibility.** Text contrast 4.5:1 (3:1 for large text and UI icons). Every input has a visible label (placeholder is not a label). Everything usable by keyboard, in logical tab order, with a visible focus ring; open modals keep focus inside until closed. Never convey meaning by color alone. Alt text on meaningful images, none on decorative ones. Respect reduced motion and text scaling. Announce errors and status changes to screen readers.
+**Accessibility.** Text contrast 4.5:1 (3:1 for large text and UI icons). Every input has a visible label (placeholder is not a label). On web, everything usable by keyboard, in logical tab order, with a visible focus ring; open modals keep focus inside until closed. On native, every control has a screen reader label that tells similar items apart. Never convey meaning by color alone. Alt text on meaningful images, none on decorative ones. Respect reduced motion and text scaling. Announce errors and status changes to screen readers.
 
-**Edge cases.** Offline, slow network, timeout and retry. Double click or double submit. Expired session (keep the user's input). List of 0, 1 and 1000 items. Very long, short, accented or RTL text. Back button, refresh and deep link mid-flow. Offline-first: a rejected sync item is visible to the user and does not block the rest of the queue.
+**Edge cases.** Offline, slow network, timeout and retry. Double click or double submit. Expired session (keep the user's input). List of 0, 1 and 1000 items. Very long, short, accented or RTL text. Back button, refresh and deep link mid-flow. Offline-first: a rejected sync item is visible to the user and does not block the rest of the queue. Local state can diverge from the real source (item deleted elsewhere, file gone): reconcile when it is shown.
 
-**Navigation and risky actions.** User always knows where they are and how to go back. Prefer undo over "Are you sure?"; if you confirm, name the consequence and use a specific button label. Make destructive actions visually distinct and never the default. Do not lose in-progress input on navigation.
+**Navigation and risky actions.** User always knows where they are and how to go back. Prefer undo over "Are you sure?"; if you confirm, name the consequence and use a specific button label. Make destructive actions visually distinct and never the default. Check every way out of a screen (button, back gesture, Android back, deep link): all go through the same guard. Do not lose in-progress input or pending selections. Once an irreversible action has started, exit and cancel controls must say what really happened.
 
-**Mobile.** Right keyboard per field (email, number, tel), correct autocomplete attributes, field not hidden behind the keyboard, respect safe areas, no hover-only features, gestures always have a visible alternative.
+**Mobile.** Right keyboard per field (email, number, tel), autofill hints on fields of a known type, field not hidden behind the keyboard, respect safe areas, no hover-only features, gestures always have a visible alternative.
 
 ## Output
 
-Top findings, the number remaining, then in one line the topics not run and whether anything was observed on screen. Before/after code for the common fixes: [references/examples.md](references/examples.md).
+Top findings, the number remaining, then in one line the topics not run. Before/after code for the common fixes: [references/examples.md](references/examples.md).

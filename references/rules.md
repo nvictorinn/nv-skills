@@ -103,7 +103,9 @@ Every task has a complexity that cannot be removed, only moved between the produ
 - Undo beats confirmation: do the action, offer "Undo" for a few seconds (archive, delete to trash). Confirmation dialogs get ignored by habit.
 - When a confirmation is needed (irreversible, expensive, affects others), name the consequence and label the button with the action ("Delete project", not "Yes"). Destructive buttons look different and are never the default focus.
 - First run: show value fast, ask for as little as possible up front, let people skip, and teach in context rather than with a long tour.
-- Never lose in-progress input when navigating away: save a draft or warn.
+- Never lose in-progress input or pending selections when navigating away: save a draft or warn.
+- A screen has more exits than its close button: back gesture, hardware back, deep link, app switch. Route them all through the same guard, which often lives in the navigation config rather than the screen.
+- After an irreversible action starts, a close button or "nothing was deleted" message can become false within seconds. Update exit paths and messages to match what already happened.
 
 ## Mobile specifics
 - Set the right input type and keyboard per field (email, tel, number, url) and `autocomplete` values so the OS can fill.
