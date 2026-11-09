@@ -17,7 +17,10 @@ Restart the session. Ask for a UX audit, or say "fix the UX of this screen".
 /ux-fix src/app/recipe/edit.tsx full audit of a file or flow
 /ux-fix forms                  one topic
 /ux-fix checkout errors, a11y  a target and several topics
+/ux-fix forms short            condensed report, one line per finding
 ```
+
+Reports are detailed by default. After a short report, ask for any finding by its number to get the full explanation.
 
 Findings are ranked by severity and frequency. The top 10 are shown, the rest on request.
 

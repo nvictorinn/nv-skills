@@ -14,6 +14,7 @@ Arguments are optional and combine a **target** (file, folder, screen or flow) w
 - `/ux-fix`: full audit of what the conversation is about. If that is unclear, ask which flow.
 - `/ux-fix src/app/recipe/edit.tsx`: full audit of that target.
 - `/ux-fix forms` or `/ux-fix checkout errors, a11y`: only those topics.
+- Add `short` anywhere (`/ux-fix short`, `/ux-fix forms short`) for the condensed report. Accept "summary" or "synthétique". Detailed is the default.
 
 Topics: `states`, `loading`, `partial`, `errors`, `empty`, `success`, `forms`, `buttons`, `targets`, `conventions`, `choices`, `complexity`, `copy`, `a11y`, `edge`, `navigation`, `mobile`. Accept close wording ("accessibility", "tap targets"). A word that is neither a topic nor an identifiable target: show this list instead of guessing.
 
@@ -74,4 +75,6 @@ Start with two or three sentences: the overall state of the flow and what to fix
 - **Why it matters:** what they lose or misunderstand.
 - **Fix:** what will change for the user, then the technical hint and `file:line`.
 
-Name screens and buttons as the user sees them. Keep code names for the end of the Fix line. No arrows, no abbreviations, no unexplained jargon. End with the number of findings remaining and the topics not run. Before/after code for the common fixes: [references/examples.md](references/examples.md).
+Name screens and buttons as the user sees them. Keep code names for the end of the Fix line. No arrows, no abbreviations, no unexplained jargon. End with the number of findings remaining and the topics not run.
+
+**Short report:** same summary, ranking and plain words, but one line per finding: `1. Title in everyday words (Blocker, frequent, seen on screen). What happens, in one sentence. Fix: what changes for the user (file:line).` Offer to detail any finding by its number, and give it in the full format when asked. Before/after code for the common fixes: [references/examples.md](references/examples.md).
