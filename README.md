@@ -10,6 +10,19 @@ git clone https://github.com/nvictorinn/ux-fix ~/.claude/skills/ux-fix
 
 Restart the session. Ask for a UX audit, or say "fix the UX of this screen".
 
+## Usage
+
+```
+/ux-fix                        full audit of the current work
+/ux-fix src/app/recipe/edit.tsx full audit of a file or flow
+/ux-fix forms                  one topic
+/ux-fix checkout errors, a11y  a target and several topics
+```
+
+Findings are ranked by severity and frequency. The top 10 are shown, the rest on request.
+
+Topics: `states`, `loading`, `partial`, `errors`, `empty`, `success`, `forms`, `buttons`, `targets`, `conventions`, `choices`, `complexity`, `copy`, `a11y`, `edge`, `navigation`, `mobile`.
+
 ## Files
 
 - `SKILL.md`: method and checklist.

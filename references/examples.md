@@ -1,5 +1,7 @@
 # Before / after
 
+Web examples first. React Native equivalents at the end; check them against the project's SDK version.
+
 ## Silent failure -> visible error (React)
 Before:
 ```jsx
@@ -66,6 +68,37 @@ function toggleStar() {
     toast("Couldn't update the star. Try again.");
   });
 }
+```
+
+## React Native equivalents
+Larger touch area without a larger icon:
+```jsx
+<Pressable hitSlop={10} accessibilityRole="button" accessibilityLabel="Remove ingredient" onPress={remove} />
+```
+Warn before losing unsaved input (`usePreventRemove` from `@react-navigation/native`):
+```jsx
+usePreventRemove(isDirty, ({ data }) => {
+  Alert.alert("Discard changes?", "Your edits will be lost.", [
+    { text: "Keep editing", style: "cancel" },
+    { text: "Discard", style: "destructive", onPress: () => navigation.dispatch(data.action) },
+  ]);
+});
+```
+Announce a status change to screen readers:
+```jsx
+AccessibilityInfo.announceForAccessibility("Recipe saved");
+```
+Move through fields with the keyboard, and dismiss it when scrolling:
+```jsx
+<TextInput returnKeyType="next" submitBehavior="submit" onSubmitEditing={() => nextRef.current?.focus()} />
+<ScrollView keyboardDismissMode="on-drag" keyboardShouldPersistTaps="handled" />
+```
+Open settings after a refused permission:
+```jsx
+Alert.alert("Camera access is off", "Allow it in Settings to take a photo.", [
+  { text: "Not now", style: "cancel" },
+  { text: "Open Settings", onPress: () => Linking.openSettings() },
+]);
 ```
 
 ## Vague copy -> specific

@@ -23,6 +23,8 @@ Timing:
 ## Partial states
 Most screens combine several independent requests. Render each region as soon as it has data, and give each one its own loading and error state. A failed revenue chart shows a retry in its own card while the invoice table stays usable. Only block the whole page when nothing on it makes sense without that data.
 
+Do not confuse "no data yet" with "no data". Many data hooks return an empty list on first render: wait for the first result before showing an empty or not-found state, and treat a failed first sync as an error, not as an empty account.
+
 ## Errors
 - Never display raw exceptions, SQL or stack traces: users cannot act on them and they leak implementation details.
 - A generic failure message is a dead end, worst when the user cannot tell whether the action happened (was the order placed?). If the outcome is unknown, say so and say how to check.
