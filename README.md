@@ -22,6 +22,8 @@ Restart the session. Ask for a UX audit, or say "fix the UX of this screen".
 
 Reports are detailed by default (`long` says it explicitly). After a short report, ask for any finding by its number to get the full explanation.
 
+Every report says which screens were covered and which were not. A whole-app audit first lists every screen, sheet, menu and permission screen, so none is skipped silently.
+
 Findings are ranked by severity and frequency. Every blocker is always shown, then the next findings up to 10, and the rest on request.
 
 Topics: `states`, `loading`, `partial`, `errors`, `empty`, `success`, `forms`, `buttons`, `targets`, `conventions`, `choices`, `complexity`, `copy`, `a11y`, `edge`, `navigation`, `mobile`.

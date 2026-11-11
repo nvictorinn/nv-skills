@@ -22,7 +22,7 @@ Problems cross topics, so a topic audit is never a clean bill of health. List th
 
 ## Method
 
-1. List every screen/flow touched, its data sources and actions, and its platform (web, native, both). For a file target, also read what controls it (navigation config, parent layout, data source). Read decisions already validated (handoff notes, specs, mockups). Do not propose reversing one without saying so.
+1. List every screen/flow touched, its data sources and actions, and its platform (web, native, both). For a file target, also read what controls it (navigation config, parent layout, data source). For a whole-app audit, build the inventory before checking anything: every route from the navigation config, plus every sheet, menu, modal, dialog, settings sub-screen and permission screen, plus what can change outside the app (data edited or deleted elsewhere, permission revoked). Check every item or list it as not covered; never drop one silently. If the app is too big for one pass, say so and offer the rest as the next pass. Read decisions already validated (handoff notes, specs, mockups). Do not propose reversing one without saying so.
 2. Run the checklist on each, limited to the requested topics if any. Skip lines that do not apply, without listing them. Web only: hover, focus ring, tab order. Native equivalents: [references/examples.md](references/examples.md).
 3. Rank findings and report them in the format under Output. Severity: **blocker** (user cannot finish, any data loss, a user action silently not done, inaccessible), **friction** (user finishes but confused or slowed, including a wrong figure with no warning), **polish** (nice to have). A finding is rare when it needs an unusual situation. Sort: blockers, rare blockers, friction, rare friction, polish. Always show every blocker, rare or not, however many there are. Fill up to 10 with the next findings, say how many remain, and give the rest on request.
 4. Propose by default. Apply fixes only when asked or when the task is "fix UX".
@@ -68,7 +68,7 @@ Problems cross topics, so a topic audit is never a clean bill of health. List th
 
 Write for someone who has not read the code, in the language of the conversation and in full sentences, even if the session otherwise uses a terse style.
 
-Start with two or three sentences: the overall state of the flow and what to fix first. Then the top findings:
+Start with two or three sentences: the overall state of the flow and what to fix first. Then one coverage line: `Covered: ... Not covered: ... (why).` A report without it reads as a clean bill of health it is not. Then the top findings:
 
 **1. Title in everyday words** (Blocker, frequent, seen on screen)
 - **What happens:** a concrete scene from the user's side: what they do, what they see.
@@ -77,4 +77,4 @@ Start with two or three sentences: the overall state of the flow and what to fix
 
 Name screens and buttons as the user sees them. Keep code names for the end of the Fix line. No arrows, no abbreviations, no unexplained jargon. End with the number of findings remaining and the topics not run.
 
-**Short report:** same summary, ranking and plain words, but one line per finding: `1. Title in everyday words (Blocker, frequent, seen on screen). What happens, in one sentence. Fix: what changes for the user (file:line).` Offer to detail any finding by its number, and give it in the full format when asked. Before/after code for the common fixes: [references/examples.md](references/examples.md).
+**Short report:** same summary, coverage line, ranking and plain words, but one line per finding: `1. Title in everyday words (Blocker, frequent, seen on screen). What happens, in one sentence. Fix: what changes for the user (file:line).` Offer to detail any finding by its number, and give it in the full format when asked. Before/after code for the common fixes: [references/examples.md](references/examples.md).
