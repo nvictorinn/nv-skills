@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "nv-skills",
+  "description": "Personal Claude Code skills.",
+  "owner": {
+    "name": "nvictorinn",
+    "url": "https://github.com/nvictorinn"
+  },
+  "plugins": [
+    {
+      "name": "nv-skills",
+      "description": "ux-fix: audit and fix the UX of a screen, flow or whole app.",
+      "source": "./",
+      "category": "development"
+    }
+  ]
+}

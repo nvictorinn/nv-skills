@@ -11,10 +11,10 @@ Find where a UI fails the user, then fix it. Visual style is out of scope, excep
 
 Arguments are optional and combine a **target** (file, folder, screen or flow) with **topics**:
 
-- `/ux-fix` or `/ux-fix all`: full audit of what the conversation is about. If that is unclear, ask which flow.
-- `/ux-fix src/app/recipe/edit.tsx`: full audit of that target.
-- `/ux-fix forms` or `/ux-fix checkout errors, a11y`: only those topics.
-- Add `short` anywhere (`/ux-fix short`, `/ux-fix forms short`) for the condensed report. Accept "summary" or "synthétique". Detailed is the default; `long`, "detailed" or "détaillé" ask for it explicitly.
+- `/nv-skills:ux-fix` or `/nv-skills:ux-fix all`: full audit of what the conversation is about. If that is unclear, ask which flow.
+- `/nv-skills:ux-fix src/app/recipe/edit.tsx`: full audit of that target.
+- `/nv-skills:ux-fix forms` or `/nv-skills:ux-fix checkout errors, a11y`: only those topics.
+- Add `short` anywhere (`/nv-skills:ux-fix short`, `/nv-skills:ux-fix forms short`) for the condensed report. Accept "summary" or "synthétique". Detailed is the default; `long`, "detailed" or "détaillé" ask for it explicitly.
 
 Topics: `states`, `loading`, `partial`, `errors`, `empty`, `success`, `forms`, `buttons`, `targets`, `conventions`, `choices`, `complexity`, `copy`, `a11y`, `edge`, `navigation`, `mobile`. Accept close wording ("accessibility", "tap targets"). A word that is neither a topic nor an identifiable target: show this list instead of guessing.
 
