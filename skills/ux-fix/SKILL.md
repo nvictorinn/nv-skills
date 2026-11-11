@@ -1,6 +1,7 @@
 ---
 name: ux-fix
 description: Audit and fix the UX of a screen, flow or component. Use when building, reviewing or polishing how a UI behaves - loading, empty, error, success and partial states, forms, buttons, tap targets, accessibility, edge cases (offline, double submit, expired session), navigation, risky actions, mobile, UI copy (button labels, error and empty-state text), conventions, too many choices. Also when the user says "UX", "friction", "users get confused" or "add the missing states". Checks the unhappy paths AI tools usually skip.
+argument-hint: "[target] [topics...] [all] [short|long]"
 ---
 
 # ux-fix

@@ -1,7 +1,7 @@
 {
   "name": "nv-skills",
   "description": "Personal Claude Code skills. ux-fix: audit and fix the UX of a screen, flow or whole app.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": {
     "name": "nvictorinn",
     "url": "https://github.com/nvictorinn"
