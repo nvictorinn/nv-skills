@@ -13,16 +13,16 @@ Restart the session. Ask for a UX audit, or say "fix the UX of this screen".
 ## Usage
 
 ```
-/ux-fix                        full audit of the current work
+/ux-fix  (or /ux-fix all)      full audit of the current work
 /ux-fix src/app/recipe/edit.tsx full audit of a file or flow
 /ux-fix forms                  one topic
 /ux-fix checkout errors, a11y  a target and several topics
 /ux-fix forms short            condensed report, one line per finding
 ```
 
-Reports are detailed by default. After a short report, ask for any finding by its number to get the full explanation.
+Reports are detailed by default (`long` says it explicitly). After a short report, ask for any finding by its number to get the full explanation.
 
-Findings are ranked by severity and frequency. The top 10 are shown, the rest on request.
+Findings are ranked by severity and frequency. Every blocker is always shown, then the next findings up to 10, and the rest on request.
 
 Topics: `states`, `loading`, `partial`, `errors`, `empty`, `success`, `forms`, `buttons`, `targets`, `conventions`, `choices`, `complexity`, `copy`, `a11y`, `edge`, `navigation`, `mobile`.
 

@@ -11,10 +11,10 @@ Find where a UI fails the user, then fix it. Visual style is out of scope, excep
 
 Arguments are optional and combine a **target** (file, folder, screen or flow) with **topics**:
 
-- `/ux-fix`: full audit of what the conversation is about. If that is unclear, ask which flow.
+- `/ux-fix` or `/ux-fix all`: full audit of what the conversation is about. If that is unclear, ask which flow.
 - `/ux-fix src/app/recipe/edit.tsx`: full audit of that target.
 - `/ux-fix forms` or `/ux-fix checkout errors, a11y`: only those topics.
-- Add `short` anywhere (`/ux-fix short`, `/ux-fix forms short`) for the condensed report. Accept "summary" or "synthétique". Detailed is the default.
+- Add `short` anywhere (`/ux-fix short`, `/ux-fix forms short`) for the condensed report. Accept "summary" or "synthétique". Detailed is the default; `long`, "detailed" or "détaillé" ask for it explicitly.
 
 Topics: `states`, `loading`, `partial`, `errors`, `empty`, `success`, `forms`, `buttons`, `targets`, `conventions`, `choices`, `complexity`, `copy`, `a11y`, `edge`, `navigation`, `mobile`. Accept close wording ("accessibility", "tap targets"). A word that is neither a topic nor an identifiable target: show this list instead of guessing.
 
@@ -24,7 +24,7 @@ Problems cross topics, so a topic audit is never a clean bill of health. List th
 
 1. List every screen/flow touched, its data sources and actions, and its platform (web, native, both). For a file target, also read what controls it (navigation config, parent layout, data source). Read decisions already validated (handoff notes, specs, mockups). Do not propose reversing one without saying so.
 2. Run the checklist on each, limited to the requested topics if any. Skip lines that do not apply, without listing them. Web only: hover, focus ring, tab order. Native equivalents: [references/examples.md](references/examples.md).
-3. Rank findings and report them in the format under Output. Severity: **blocker** (user cannot finish, any data loss, a user action silently not done, inaccessible), **friction** (user finishes but confused or slowed, including a wrong figure with no warning), **polish** (nice to have). A finding is rare when it needs an unusual situation. Sort: blockers, friction, rare blockers, rare friction, polish. Show the top 10 and say how many remain; give the rest on request.
+3. Rank findings and report them in the format under Output. Severity: **blocker** (user cannot finish, any data loss, a user action silently not done, inaccessible), **friction** (user finishes but confused or slowed, including a wrong figure with no warning), **polish** (nice to have). A finding is rare when it needs an unusual situation. Sort: blockers, rare blockers, friction, rare friction, polish. Always show every blocker, rare or not, however many there are. Fill up to 10 with the next findings, say how many remain, and give the rest on request.
 4. Propose by default. Apply fixes only when asked or when the task is "fix UX".
 5. If the UI targets phones, test on a real or emulated device when you can: missed taps, scroll vs tap, one-handed reach. Note for each finding whether it was seen on screen or only read in the code.
 
