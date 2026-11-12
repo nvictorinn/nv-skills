@@ -29,7 +29,7 @@ Audits a screen, flow or whole app for UX problems and fixes them: missing loadi
 
 Reports are detailed by default (`long` says it explicitly). After a short report, ask for any finding by its number to get the full explanation.
 
-Every report says which screens were covered and which were not. A whole-app audit first lists every screen, sheet, menu and permission screen, so none is skipped silently. It then checks groups of screens in parallel subagents, plus one for issues that cross screens (midnight, offline, data changed elsewhere), so one run replaces several passes. It costs more tokens than a single-screen audit.
+Every report says which screens were covered and which were not. A whole-app audit first lists every screen, sheet, menu and permission screen, so none is skipped silently. It then checks groups of screens in parallel subagents, plus one for issues that cross screens (midnight, offline, data changed elsewhere), so one run replaces several passes. It costs more tokens than a single-screen audit; to keep it down, the main agent maps shared code once, the subagents run on Sonnet and send back one line per finding.
 
 Findings are ranked by severity and frequency. Every blocker is always shown, then the next findings up to 10, and the rest on request.
 
